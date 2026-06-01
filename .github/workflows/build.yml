@@ -15,9 +15,9 @@ jobs:
         with:
           python-version: "3.11"
           
-      # NEW: Force the server to use Java 17 for Android compatibility
+      # UPDATED to v5 to support Node 24 and silence the warning
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'zulu'
           java-version: '17'
@@ -27,7 +27,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install flet
           
-      # NEW: Added --verbose so it prints the exact error if it fails
       - name: Build APK via Flet
         run: flet build apk --yes --verbose
         
